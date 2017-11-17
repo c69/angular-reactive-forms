@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 // thank you NG CLI for not importing this </irony>
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FormKitchenSinkComponent } from './form-kitchen-sink/form-kitchen-sink.component';
@@ -35,6 +35,7 @@ const routConfig: Routes = [
       enableTracing: false
     }),
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

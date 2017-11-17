@@ -1,3 +1,11 @@
 label {
     display: block;
 }
+label input,
+label select
+{
+    margin-left: 2em;
+}
+pre {
+    background: #eeeeee;
+}

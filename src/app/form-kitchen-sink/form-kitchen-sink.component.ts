@@ -1,4 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  FormArray,
+
+  FormBuilder,
+  // Validator
+} from '@angular/forms';
 
 @Component({
   selector: 'app-form-kitchen-sink',
@@ -7,10 +15,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class FormKitchenSinkComponent implements OnInit {
+  kitchenSink: FormGroup;
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.kitchenSink = this.fb.group({
+      name: ['']
+    });
   }
 
 }
