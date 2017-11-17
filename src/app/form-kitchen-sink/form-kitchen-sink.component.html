@@ -4,8 +4,10 @@
 <form novalidate
   [formGroup]="kitchenSink"
 >
+  <button type="submit" [disabled]="!kitchenSink.valid">Submit</button>
 
   <label>Name<input formControlName="name" type="text" /></label>
+  <label>Age<input formControlName="age" type="text" /></label>
 
 <!--
   <label>Password<input type="password" /></label>
@@ -32,5 +34,7 @@
 
 </form>
 
+<br />
+<div>Form status: {{kitchenSink.status}}</div>
 <pre>{{kitchenSink.value | json}}</pre>
 </div>

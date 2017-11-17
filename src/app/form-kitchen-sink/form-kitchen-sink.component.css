@@ -9,3 +9,9 @@ label select
 pre {
     background: #eeeeee;
 }
+button[type="submit"] {
+    background-color: lime;
+}
+button[type="submit"]:disabled {
+    background-color: silver;
+}

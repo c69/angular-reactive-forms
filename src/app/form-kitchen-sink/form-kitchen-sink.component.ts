@@ -5,7 +5,7 @@ import {
   FormArray,
 
   FormBuilder,
-  // Validator
+  Validators
 } from '@angular/forms';
 
 @Component({
@@ -23,7 +23,8 @@ export class FormKitchenSinkComponent implements OnInit {
 
   ngOnInit() {
     this.kitchenSink = this.fb.group({
-      name: ['']
+      name: ['', Validators.required],
+      age: ['', [Validators.min(18)]]
     });
   }
 
