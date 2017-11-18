@@ -3,6 +3,7 @@
 
 <form novalidate
   [formGroup]="kitchenSink"
+  (ngSubmit)="sendStuffOutside(kitchenSink.value)"
 >
   <button type="submit" [disabled]="!kitchenSink.valid">Submit</button>
 

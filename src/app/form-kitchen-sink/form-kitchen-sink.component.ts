@@ -27,5 +27,8 @@ export class FormKitchenSinkComponent implements OnInit {
       age: ['', [Validators.min(18)]]
     });
   }
-
+  sendStuffOutside (data) {
+    console.log(data);
+    // .. just call service to do your HTTP stuff
+  }
 }
