@@ -39,6 +39,10 @@ export class FormKitchenSinkComponent implements OnInit {
       this.createFormGroup_Phone()
     );
   }
+  removePhone (index) {
+    // using .get is alternative addressation way
+    (this.kitchenSink.get('phones') as FormArray).removeAt(index);
+  }
   createFormGroup_Phone (initialType: string = '', initialNumber: string = '') {
     return this.fb.group({
       type: [initialType],

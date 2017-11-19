@@ -22,19 +22,26 @@
   <label>Gender<select><option>Other</option></select></label>
 -->
 <div formArrayName="phones">
-  <b>Phones</b> <a (click)="addPhone()">[+ Add]</a>
+  <b>Phones ({{
+    kitchenSink.get('phones').controls.length
+  }})</b> <a (click)="addPhone()" style="color: blue;">[+ Add]</a>
   <ng-container
     [formGroupName]="i"
     *ngFor="
       let phone of kitchenSink.controls.phones.controls;
       let i = index;
     ">
-    {{i}}
     <label>Type<select formControlName="type">
       <option>Mobile</option>
       <option>Landline</option>
     </select></label>
-    <label>Phone<input formControlName="number" type="phone" /></label>
+    <label>Phone
+      <input formControlName="number" type="phone" />
+    </label>
+    <a *ngIf="kitchenSink.controls.phones.controls.length > 1"
+    (click)="removePhone(i)" style="color: red;">
+      ^-Remove
+    </a>
   </ng-container>
 </div>
 <!--
