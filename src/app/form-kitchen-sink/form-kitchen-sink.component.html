@@ -20,11 +20,17 @@
   <label>Birthday<input type="date" /></label>
 
   <label>Gender<select><option>Other</option></select></label>
-
-
-  <label>Type<select><option>Mobile</option></select></label>
-  <label>Phone<input type="text" /></label>
-
+-->
+<div formArrayName="phones" *ngFor="let phone of kitchenSink.controls.phones.controls; let i = index;">
+  <ng-container [formGroupName]="i">
+    <label>Type<select formControlName="type">
+      <option>Mobile</option>
+      <option>Landline</option>
+    </select></label>
+    <label>Phone<input formControlName="number" type="phone" /></label>
+  </ng-container>
+</div>
+<!--
   <label>Line 1<input type="text" /></label>
   <label>Line 2 (optional)<input type="text" /></label>
   <label>Country<input type="text" /></label>
