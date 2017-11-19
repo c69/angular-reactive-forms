@@ -6,6 +6,7 @@
   (ngSubmit)="sendStuffOutside(kitchenSink.value)"
 >
   <button type="submit" [disabled]="!kitchenSink.valid">Submit</button>
+  <button type="button" (click)="prepopulateForm()">Pre-populate</button>
 
   <label>Name<input formControlName="name" type="text" /></label>
   <label>Age<input formControlName="age" type="text" /></label>

@@ -43,6 +43,22 @@ export class FormKitchenSinkComponent implements OnInit {
     // using .get is alternative addressation way
     (this.kitchenSink.get('phones') as FormArray).removeAt(index);
   }
+  prepopulateForm () {
+    // a BUG: does not add a second phone
+    this.kitchenSink.patchValue({
+      name: 'John Doe',
+      age: 42,
+      phones: [
+        {
+          type: 'Mobile',
+          number: '123 322 2222'
+        }, {
+          type: 'Landline',
+          number: '800 123 4567'
+        },
+      ]
+    });
+  }
   createFormGroup_Phone (initialType: string = '', initialNumber: string = '') {
     return this.fb.group({
       type: [initialType],
