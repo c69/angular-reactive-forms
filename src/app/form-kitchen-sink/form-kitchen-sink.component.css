@@ -1,5 +1,6 @@
 label {
     display: block;
+    margin-bottom: 5px;
 }
 label input,
 label select
@@ -14,4 +15,10 @@ button[type="submit"] {
 }
 button[type="submit"]:disabled {
     background-color: silver;
+}
+input.ng-invalid {
+    outline: 2px solid red;
+}
+input.ng-dirty {
+    background: yellow;
 }
