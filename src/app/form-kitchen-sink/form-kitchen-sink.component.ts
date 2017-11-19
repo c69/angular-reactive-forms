@@ -26,11 +26,23 @@ export class FormKitchenSinkComponent implements OnInit {
       name: ['', Validators.required],
       age: ['', [Validators.min(18)]],
       phones: this.fb.array([
-        this.fb.group({
-          type: ['Mobile'],
-          number: ['', Validators.maxLength(20)]
-        })
+        this.createFormGroup_Phone('Mobile')
       ])
+    });
+  }
+  addPhone () {
+    // untyped forms in Angular is subject of many complains
+    // for 5.0.0 we can still use old TS trick with "type assertion"
+    // but pull request with fix is already submitted
+    // so, hopefully the wait will not be too long
+    (this.kitchenSink.controls.phones as FormArray).push(
+      this.createFormGroup_Phone()
+    );
+  }
+  createFormGroup_Phone (initialType: string = '', initialNumber: string = '') {
+    return this.fb.group({
+      type: [initialType],
+      number: [initialNumber, Validators.maxLength(20)]
     });
   }
   sendStuffOutside (data) {

@@ -21,8 +21,15 @@
 
   <label>Gender<select><option>Other</option></select></label>
 -->
-<div formArrayName="phones" *ngFor="let phone of kitchenSink.controls.phones.controls; let i = index;">
-  <ng-container [formGroupName]="i">
+<div formArrayName="phones">
+  <b>Phones</b> <a (click)="addPhone()">[+ Add]</a>
+  <ng-container
+    [formGroupName]="i"
+    *ngFor="
+      let phone of kitchenSink.controls.phones.controls;
+      let i = index;
+    ">
+    {{i}}
     <label>Type<select formControlName="type">
       <option>Mobile</option>
       <option>Landline</option>
